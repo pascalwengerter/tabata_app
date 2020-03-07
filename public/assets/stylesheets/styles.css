@@ -1,0 +1,14 @@
+body {
+  text-align: center;
+}
+#waveform_active, #waveform_relax {
+  width: 100%;
+  height: auto;
+}
+.active, .relax {
+  width: 49%;
+  display: inline-block;
+}
+.submit {
+  margin-top: 25px;
+}
