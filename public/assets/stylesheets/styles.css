@@ -1,14 +1,54 @@
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  background-color: darkgray;
+  background-image: url("../images/victor-freitas-qZ-U9z4TQ6A-unsplash.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;  
   text-align: center;
 }
+
+#error, h1 span, h2 span, p span {
+  background-color: rgba(222, 184, 135, 0.45);
+  padding: 0.3rem;
+}
+
+#error {
+  padding: initial;
+}
+
+.card {
+  overflow: hidden;
+}
+
 #waveform_active, #waveform_relax {
   width: 100%;
   height: auto;
 }
-.active, .relax {
-  width: 49%;
-  display: inline-block;
+
+.btn-red {
+  background-color: var(--bs-red);
+  color: #fff;
 }
-.submit {
-  margin-top: 25px;
+.btn-red:hover {
+  color: #fff;
+}
+
+footer {
+  background-color: burlywood;
+}
+footer p {
+  background-color: none;
+  margin: 0;
+}
+footer p a {
+  color: var(--bs-red);
+}
+footer p a:hover {
+  color: darken(var(--bs-red), 30%);
 }
