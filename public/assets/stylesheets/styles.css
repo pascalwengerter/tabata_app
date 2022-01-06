@@ -13,7 +13,8 @@ body {
   text-align: center;
 }
 
-#error, h1 span, h2 span, p span {
+#error,
+.description {
   background-color: rgba(222, 184, 135, 0.45);
   padding: 0.3rem;
 }
@@ -41,10 +42,9 @@ body {
 
 footer {
   background-color: burlywood;
-}
-footer p {
-  background-color: none;
-  margin: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 footer p a {
   color: var(--bs-red);

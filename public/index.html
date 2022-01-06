@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,18 +10,20 @@
   <link href="assets/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet">
   <link href="assets/stylesheets/styles.css" type="text/css" rel="stylesheet">
 </head>
+
 <body>
 
-  <form enctype="multipart/form-data" id="form-id" method="post" name="submit_files" target="_blank" class="">
+  <form enctype="multipart/form-data" id="form-id" method="post" name="submit_files" target="_blank" class="pb-5">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12 text-light pt-5">
-          <h1><span>Create your personal tabata track now!</span></h1>
-          <h2><span>Tabata: 4 minute high intensity training.</span></h2>
-          <p><span>Composed of eight intervals, 20 seconds of activity and 10 seconds of rest each.
-            Join your favorite tracks for maximum fun.</span></p>
-          <p><span>Pick an audio track for both the exercise and the rest part and move the dark area to the part that you want to play during the
-            workout.</span></p>
+      <div class="row justify-content-center">
+        <div class="description col-md-8 col-sm-10 col-12 text-light mt-5 py-2">
+          <h1>Create your personal tabata track now!</h1>
+          <h2>Tabata: 4 minute high intensity training.</h2>
+          <p>Composed of eight intervals, 20 seconds of activity and 10 seconds of rest each.
+            Join your favorite tracks for maximum fun.</p>
+          <p>Pick an audio track for both the exercise and the rest part and move the dark area to the part that
+            you want to play during the
+            workout.</p>
         </div>
         <div class="col-md-6">
           <div class="card my-3">
@@ -30,7 +33,7 @@
                 <div id="waveform_active" class=""></div>
                 <div id="wave_active-timeline" class=""></div>
               </div>
-              <input name="active_track" type="file" id="fileinput_active" class="" />
+              <input required accept="audio/*" name="active_track" type="file" id="fileinput_active" class="" />
               <div class="mt-3">
                 <button class="btn btn-red" type="button" name="button" onclick="wavesurfer_active.play()">Play</button>
                 <button class="btn btn-secondary" type="button" name="button"
@@ -47,7 +50,7 @@
                 <div id="waveform_relax" class=""></div>
                 <div id="wave_relax-timeline" class=""></div>
               </div>
-              <input name="rest_track" type="file" id="fileinput_relax" class="" />
+              <input required accept="audio/*" name="rest_track" type="file" id="fileinput_relax" class="" />
               <div class="mt-3">
                 <button class="btn btn-red" type="button" name="button" onclick="wavesurfer_relax.play()">Play</button>
                 <button class="btn btn-secondary" type="button" name="button"
@@ -74,10 +77,11 @@
   </form>
   <footer class="footer p-3">
     <div class="container text-center">
-      <p>
-        Copyright © 2020 Pascal Wengerter | 
-        Like what you see? <a href="https://buymeacoffee.com/musclemate" target="_blank">Buy me a <s>coffee</s> portein shake!</a>
-        <br/>
+      <p class="my-0">
+        Copyright © 2021 Pascal Wengerter |
+        Like what you see? <a href="https://buymeacoffee.com/pascalwengerter" target="_blank">Buy me a <s>coffee</s> portein
+          shake!</a>
+        <br />
         Feedback? <a href="mailto:gainz@musclemate.app">Drop me a line</a>
       </p>
     </div>
