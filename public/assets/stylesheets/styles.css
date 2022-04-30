@@ -1,4 +1,5 @@
-html, body{
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -6,10 +7,11 @@ html, body{
 
 body {
   background-color: darkgray;
+  /* TODO: Add img attribution and rename asset */
   background-image: url("../images/victor-freitas-qZ-U9z4TQ6A-unsplash.jpg");
   background-position: top center;
   background-repeat: no-repeat;
-  background-size: cover;  
+  background-size: cover;
   text-align: center;
 }
 
@@ -27,7 +29,8 @@ body {
   overflow: hidden;
 }
 
-#waveform_active, #waveform_relax {
+#waveform_active,
+#waveform_relax {
   width: 100%;
   height: auto;
 }
@@ -36,6 +39,7 @@ body {
   background-color: var(--bs-red);
   color: #fff;
 }
+
 .btn-red:hover {
   color: #fff;
 }
@@ -46,9 +50,11 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
 footer p a {
   color: var(--bs-red);
 }
+
 footer p a:hover {
   color: darken(var(--bs-red), 30%);
 }
