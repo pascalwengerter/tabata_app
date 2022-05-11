@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tabata Timer | MuscleMate</title>
+  <title>Tabata Timer | MuscleMate.app</title>
   <link rel="icon" href="assets/images/favicon.ico" />
 
   <link href="assets/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet">
@@ -13,27 +13,33 @@
 
 <body>
 
-  <form enctype="multipart/form-data" id="form-id" method="post" name="submit_files" target="_blank" class="pb-5">
+  <form enctype="multipart/form-data" id="form-id" method="post" name="submit_files" target="_blank" class="pb-5 mb-5">
     <div class="container-fluid">
       <div class="row justify-content-center">
-        <div class="description col-md-8 col-sm-10 col-12 text-light mt-5 py-2">
+        <div class="description col-md-8 col-sm-10 col-12 text-light mt-3 py-2">
           <h1>Create your personal tabata track now!</h1>
           <h2>Tabata: 4 minute high intensity training.</h2>
-          <p>Composed of eight intervals, 20 seconds of activity and 10 seconds of rest each.
-            Join your favorite tracks for maximum fun.</p>
-          <p>Pick an audio track for both the exercise and the rest part and move the dark area to the part that
-            you want to play during the
-            workout.</p>
+          <p>
+            Composed of eight intervals, 20 seconds of
+            activity and 10 seconds of rest each.
+            Join your favorite tracks for maximum "fun".
+          </p>
+          <p>
+            Pick audio tracks for both the exercise
+            and the rest part and move the dark area
+            to the part of the tracks that you want
+            to play during the workout.
+          </p>
         </div>
         <div class="col-md-6">
           <div class="card my-3">
             <div class="card-body">
-              <h3 class="">Exercise Track</h3>
+              <h3>Exercise Track</h3>
               <div class="waveform-container my-3">
-                <div id="waveform_active" class=""></div>
-                <div id="wave_active-timeline" class=""></div>
+                <div id="waveform_active"></div>
+                <div id="wave_active-timeline"></div>
               </div>
-              <input required accept="audio/*" name="active_track" type="file" id="fileinput_active" class="" />
+              <input required accept="audio/*" name="active_track" type="file" id="fileinput_active" />
               <div class="mt-3">
                 <button class="btn btn-red" type="button" name="button" onclick="wavesurfer_active.play()">Play</button>
                 <button class="btn btn-secondary" type="button" name="button"
@@ -45,12 +51,12 @@
         <div class="col-md-6">
           <div class="card my-3">
             <div class="card-body">
-              <h3 class="">Rest Track</h3>
+              <h3>Rest Track</h3>
               <div class="waveform-container my-3">
-                <div id="waveform_relax" class=""></div>
-                <div id="wave_relax-timeline" class=""></div>
+                <div id="waveform_relax"></div>
+                <div id="wave_relax-timeline"></div>
               </div>
-              <input required accept="audio/*" name="rest_track" type="file" id="fileinput_relax" class="" />
+              <input required accept="audio/*" name="rest_track" type="file" id="fileinput_relax" />
               <div class="mt-3">
                 <button class="btn btn-red" type="button" name="button" onclick="wavesurfer_relax.play()">Play</button>
                 <button class="btn btn-secondary" type="button" name="button"
@@ -63,7 +69,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-body">
-                <h3 class="">This site doesn't work without JavaScript</h3>
+                <h3>This site doesn't work without JavaScript</h3>
               </div>
             </div>
           </div>
@@ -81,7 +87,7 @@
         Copyright © 2022 Pascal Wengerter |
         Like what you see?
         <a href="https://buymeacoffee.com/pascalwengerter" target="_blank">
-          Buy me a <s>coffee</s>portein shake!
+          Buy me a <s>coffee</s>protein shake!
         </a>
         <br />
         Feedback? <a href="mailto:heyyy@pascal.rocks">Drop me a line</a>
