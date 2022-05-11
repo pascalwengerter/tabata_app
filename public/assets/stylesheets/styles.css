@@ -7,8 +7,8 @@ body {
 
 body {
   background-color: darkgray;
-  /* TODO: Add img attribution and rename asset */
-  background-image: url("../images/victor-freitas-qZ-U9z4TQ6A-unsplash.jpg");
+  /* Background picture by/from https://unsplash.com/@victorfreitas */
+  background-image: url("../images/background-img.jpg");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
