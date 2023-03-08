@@ -29,8 +29,8 @@ body {
   overflow: hidden;
 }
 
-#waveform_active,
-#waveform_relax {
+#waveform-active,
+#waveform-relax {
   width: 100%;
   height: auto;
 }
