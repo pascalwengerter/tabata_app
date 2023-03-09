@@ -1,17 +1,22 @@
+import './assets/stylesheets/bootstrap.min.css'
+import './assets/stylesheets/styles.css'
+
+import WaveSurfer from "wavesurfer.js"
+import RegionsPlugin from "wavesurfer.js/dist/plugin/wavesurfer.regions.min.js"
+import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js"
+
 const createWaveSurfer = (containerId, timelineId, regionColor) => WaveSurfer.create({
   container: containerId,
   waveColor: "#DEB887",
   progressColor: "DC3545",
   plugins: [
-    WaveSurfer.timeline.create({
+    TimelinePlugin.create({
       container: timelineId
     }),
-    WaveSurfer.regions.create({
+    RegionsPlugin.create({
       regions: [
         {
-          start: 0,
           end: 20,
-          loop: false,
           resize: false,
           color: `hsla(400, 100%, 30%, ${regionColor})`
         }
@@ -23,7 +28,6 @@ const createWaveSurfer = (containerId, timelineId, regionColor) => WaveSurfer.cr
   ]
 });
 
-// Create WaveSurfer instances
 const wavesurferActive = createWaveSurfer("#waveform-active", "#wave-active-timeline", "0.5")
 const wavesurferRelax = createWaveSurfer("#waveform-relax",  "#wave-relax-timeline", "0.7")
 
@@ -47,27 +51,27 @@ const addChangeEventListener = (inputId, waveSurferInstance) => document.getElem
   }
 }, false);
 
-// Load files into wavesurfer instances once user adds file to corresponding input 
 addChangeEventListener("fileinput-active", wavesurferActive)
 addChangeEventListener("fileinput-relax", wavesurferRelax)
 
-const revealInterval = (wavesurfer_name) => {
-  const current_interval = wavesurfer_name.regions.list[Object.keys(wavesurfer_name.regions.list)[0]]
-  return [current_interval.start, current_interval.end];
+document.getElementById("active-play-btn").onclick = () => wavesurferActive.play()
+document.getElementById("active-pause-btn").onclick = () => wavesurferActive.pause()
+document.getElementById("relax-play-btn").onclick = () => wavesurferRelax.play()
+document.getElementById("relax-pause-btn").onclick = () => wavesurferRelax.pause()
+
+const revealInterval = (waveSurferInstance) => {
+  const currentInterval = waveSurferInstance.regions.list[Object.keys(waveSurferInstance.regions.list)[0]]
+  return [currentInterval.start, currentInterval.end];
 }
 
-// Send files + start & end dates for both tracks to server
-let form = document.forms.namedItem("submit_files");
+const form = document.forms.namedItem("submit_files");
 form.addEventListener('submit', function (ev) {
 
-  const active_interval = revealInterval(wavesurferActive);
-  const rest_interval = revealInterval(wavesurferRelax);
+  const responseElement = document.getElementById("error");
+  const formPayload = new FormData(form);
 
-  const response_element = document.getElementById("error");
-  const form_payload = new FormData(form);
-
-  form_payload.append("active_interval", active_interval);
-  form_payload.append("rest_interval", rest_interval);
+  formPayload.append("active_interval", revealInterval(wavesurferActive));
+  formPayload.append("rest_interval", revealInterval(wavesurferRelax));
 
   const xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
@@ -76,8 +80,7 @@ form.addEventListener('submit', function (ev) {
       // Trick for making downloadable link
       a = document.createElement('a');
       a.href = window.URL.createObjectURL(xhttp.response);
-      // Give filename you wish to download
-      a.download = "final_output.mp3";
+      a.download = "musclemate-tabata-track.mp3";
       a.style.display = 'none';
       document.body.appendChild(a);
       a.click();
@@ -88,13 +91,13 @@ form.addEventListener('submit', function (ev) {
 
   xhttp.onload = function (oEvent) {
     if (xhttp.status == 200) {
-      response_element.innerHTML = "Uploaded!";
+      responseElement.innerHTML = "Uploaded!";
     } else {
-      response_element.innerHTML = "Error " + xhttp.status + " occurred when trying to upload your file.<br \/>";
+      responseElement.innerHTML = "Error " + xhttp.status + " occurred when trying to upload your file.<br \/>";
     }
   };
 
   xhttp.responseType = 'blob';
-  xhttp.send(form_payload);
+  xhttp.send(formPayload);
   ev.preventDefault();
 }, false);

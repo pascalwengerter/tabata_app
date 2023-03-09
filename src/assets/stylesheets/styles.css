@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  background-color: darkgray;
+  background-color: #1c1c1c;
   /* Background picture by/from https://unsplash.com/@victorfreitas */
   background-image: url("../images/background-img.jpg");
   background-position: top center;
@@ -49,6 +49,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 3;
 }
 
 footer p a {
