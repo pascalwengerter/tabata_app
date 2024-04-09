@@ -96,10 +96,7 @@ audioFilePauseRelax.addEventListener("click", function () {
 });
 
 const revealInterval = (waveSurferInstance) => {
-  const currentInterval =
-    waveSurferInstance.regions.list[
-      Object.keys(waveSurferInstance.regions.list)[0]
-    ];
+  const currentInterval = waveSurferInstance.plugins[1].regions[0];
   return [currentInterval.start, currentInterval.end];
 };
 
@@ -108,6 +105,8 @@ const form = document.forms.namedItem("submit_files");
 form.addEventListener(
   "submit",
   function (ev) {
+    ev.preventDefault();
+
     const responseElement = document.getElementById("error");
     const formPayload = new FormData(form);
 
@@ -143,7 +142,6 @@ form.addEventListener(
 
     xhttp.responseType = "blob";
     xhttp.send(formPayload);
-    ev.preventDefault();
   },
   false
 );

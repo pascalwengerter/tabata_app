@@ -15,6 +15,9 @@ RUN pnpm run build
 # Backend Stage
 FROM ruby:2.7.6 AS backend
 
+RUN apt-get update -qq && apt-get install -y build-essential
+RUN apt-get install -y ffmpeg
+
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
