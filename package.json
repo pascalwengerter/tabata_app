@@ -1,0 +1,17 @@
+{
+  "name": "musclemate_frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "wavesurfer.js": "^7.7.10"
+  },
+  "devDependencies": {
+    "vite": "^4.5.3"
+  }
+}
